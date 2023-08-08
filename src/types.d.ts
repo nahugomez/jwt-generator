@@ -7,3 +7,13 @@ export interface Token {
     session_date: string;
     scope: string;
 }
+
+export interface APIResponse {
+    data: Token;
+    status: number;
+}
+
+export interface APIError {
+    message: string;
+    status: number;
+}
