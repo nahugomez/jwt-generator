@@ -1,4 +1,3 @@
-// cspell:ignore keycloak hasurauser, hasura
 import axios, { AxiosError } from "axios";
 import { APIResponse, PostParameters } from "../types";
 
