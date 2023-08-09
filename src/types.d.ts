@@ -12,3 +12,9 @@ export interface APIResponse {
     data: Token;
     status: number;
 }
+
+export interface PostParameters {
+    user: string;
+    password: string;
+    client: string;
+}

@@ -1,8 +1,8 @@
 // cspell:ignore keycloak hasurauser, hasura
 import axios, { AxiosError } from "axios";
-import { APIResponse } from "../types";
+import { APIResponse, PostParameters } from "../types";
 
-export const ObtainJWT = async (): Promise<APIResponse> => {
+export const ObtainJWT = async (Parameters: PostParameters): Promise<APIResponse> => {
     try {
         const KeycloakURL = "http://localhost:8081/auth/realms/master/protocol/openid-connect/token";
         const { data } = await axios<APIResponse>({
@@ -12,15 +12,15 @@ export const ObtainJWT = async (): Promise<APIResponse> => {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
             data: {
-                username: "hasurauser",
-                password: 1234,
+                username: Parameters.user,
+                password: Parameters.password,
+                client_id: Parameters.client,
                 grant_type: "password",
-                client_id: "hasura",
             },
         });
         return data;
     } catch (err) {
         const error = err as AxiosError;
-        throw error.cause;
+        throw new Error(error.code);
     }
 };
