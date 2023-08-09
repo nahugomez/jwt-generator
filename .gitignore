@@ -4,5 +4,5 @@ node_modules
 # BUILD
 build
 
-# ENVIROMENT VARIABLES
+# ENVIRONMENT VARIABLES
 *.env
