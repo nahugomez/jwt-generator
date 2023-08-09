@@ -12,8 +12,3 @@ export interface APIResponse {
     data: Token;
     status: number;
 }
-
-export interface APIError {
-    message: string;
-    status: number;
-}
