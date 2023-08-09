@@ -4,7 +4,7 @@ import { APIResponse, PostParameters } from "../types";
 
 export const ObtainJWT = async (Parameters: PostParameters): Promise<APIResponse> => {
     try {
-        const KeycloakURL = "http://localhost:8081/auth/realms/master/protocol/openid-connect/token";
+        const KeycloakURL = process.env.KEYCLOAK_URL;
         const { data } = await axios<APIResponse>({
             method: "post",
             url: KeycloakURL,

@@ -1,8 +1,10 @@
 import express from "express";
 import router from "./routes/jwtRoutes";
+import dotenv from "dotenv";
 
 const PORT = 1717;
 const app = express();
+dotenv.config();
 
 // MIDDLEWARE CONFIGS
 // El siguiente middleware transforma req.body en un JSON
